@@ -91,5 +91,6 @@ The chatbot supports multi-turn conversations, session-based chat history, grace
 The Smart Chatbot with Conversational RAG showcases a practical and production-oriented approach to building explainable conversational AI systems. By combining TF-IDF, FAISS, and Streamlit, the project delivers fast, accurate, and transparent responses while avoiding the risks of hallucination. This system serves as a strong foundation for real-world chatbot deployments and demonstrates solid understanding of modern NLP retrieval techniques.
 
 ## OUTPUT:
-
-
+<img width="840" height="733" alt="Image" src="https://github.com/user-attachments/assets/d3900a9a-13ed-46df-9164-0e51eb353860" />
+<img width="841" height="687" alt="Image" src="https://github.com/user-attachments/assets/22130c46-bc13-43db-908e-88911d06f4c3" />
+<img width="700" height="737" alt="Image" src="https://github.com/user-attachments/assets/3e8584cb-d604-4b98-9b6b-026d628cde54" />
