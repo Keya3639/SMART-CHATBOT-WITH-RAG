@@ -1,96 +1,432 @@
-# SMART-CHATBOT-WITH-RAG
+<div align="center">
+
+# 🤖 Smart Chatbot with RAG
+
+# Retrieval-Augmented Generation Conversational AI System
+
+## Retrieve. Respond. Retain. Smarter Conversations. 🧠
+
+</div>
+
+---
+
+<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red?style=for-the-badge&logo=streamlit&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-Vector_Search-4B8BBE?style=for-the-badge)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-TFIDF-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Pickle](https://img.shields.io/badge/Pickle-Serialization-FF6F00?style=for-the-badge)
+![RAG](https://img.shields.io/badge/RAG-Retrieval_Augmented-FFD700?style=for-the-badge)
+![CPU Only](https://img.shields.io/badge/Compute-CPU_Only-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+
+</p>
+
+---
+
+# 📖 Project Description
+
 The **Smart Chatbot with Conversational RAG (Retrieval-Augmented Generation)** is a Python-based intelligent chatbot application that delivers accurate, dataset-grounded responses using information retrieval techniques. Built with a focus on multi-turn conversations, this system retrieves the most relevant responses from a curated dataset instead of generating random text, ensuring reliability, transparency, and consistency in answers.
+
 This chatbot is designed for applications such as customer support, FAQs, information systems, and domain-specific assistants where factual correctness and confidence scoring are critical.
 
-## Overview
+---
 
-This project uses a **Retrieval-Augmented Generation (RAG)** approach where user queries are first transformed into numerical vectors using TF-IDF vectorization, then searched efficiently using FAISS to retrieve the most relevant responses from a structured dataset. Unlike purely generative models, this system grounds every response in existing data, making it more interpretable and trustworthy.
+# ✨ Key Highlights
 
-The chatbot supports multi-turn conversations, session-based chat history, graceful conversation endings, and confidence visualization, all deployed through an interactive Streamlit web interface.
+- 🤖 Conversational RAG Architecture
+- 📊 TF-IDF + FAISS Powered Retrieval
+- 🎯 Confidence Score Calculation
+- 💬 Multi-Turn Conversation Handling
+- 📈 Confidence Visualization
+- 🧠 Dataset-Grounded Responses
+- 🔍 Explainable AI Behavior
+- 🎨 Interactive Streamlit Interface
+- 📁 Evaluation Summary Included
+- ⚡ Lightweight & Fast Execution
 
-## Tools and Technologies Used
+---
 
-- **Python:** Primary programming language used to implement data processing, retrieval logic, and application flow.
+# 🏗 System Architecture
 
-- **Streamlit:** Provides an interactive and responsive web-based chatbot interface with real-time updates.
+The Smart Chatbot follows a modular Retrieval-Augmented Generation pipeline that transforms user queries into dataset-grounded responses through TF-IDF vectorization, FAISS similarity search, and confidence scoring.
 
-- **Pandas:** Used for loading, managing, and querying structured chatbot datasets.
+```mermaid
+flowchart TD
 
-- **NumPy:** Handles numerical computations and vector operations efficiently.
+A["💬 User Query Input"]
+B["🔍 Query Preprocessing"]
 
-- **TF-IDF Vectorizer (Scikit-learn):** Converts user queries and dataset text into numerical vectors based on term importance.
+A --> B
 
-- **FAISS:** Enables fast and scalable similarity search over vectorized text data.
+B --> C["📊 TF-IDF Vectorization"]
 
-- **Pickle:** Used for serializing and loading trained TF-IDF vectorizers.
+C --> D["🔎 FAISS Similarity Search"]
 
-- **Regular Expressions (re):** Used for text cleaning, normalization, and query preprocessing.
+D --> E["📋 Top-K Relevant Records Retrieved"]
 
-## Why These Tools Were Selected
+E --> F["🎯 Best Response Selection"]
 
-- TF-IDF provides a lightweight, explainable, and efficient method for text vectorization.
-- FAISS ensures fast similarity search even as dataset size increases.
-- Streamlit allows rapid development and deployment without complex frontend coding.
-- Python offers extensive NLP and data science libraries, speeding up development.
-- Retrieval-based RAG ensures factual correctness and avoids hallucinations common in purely generative systems.
+F --> G["📈 Confidence Score Calculation"]
 
-## Features
+G --> H["💬 Response Display"]
 
-- Conversational RAG architecture using dataset-grounded retrieval.
-- Multi-turn conversation handling with persistent session state.
-- TF-IDF + FAISS powered retrieval for accurate response matching.
-- Confidence score calculation and visualization for every answer.
-- Automatic conversation-ending detection with polite closing responses.
-- Frontend transparency, allowing users to view retrieved context details.
-- Integrated evaluation summary, making the project resume-ready.
+H --> I["📊 Confidence Visualization"]
 
-## How It Works
+I --> J["🧠 Multi-Turn Conversation State"]
+```
 
-- User enters a query through the Streamlit chat interface
-- Input text is cleaned and normalized using regular expressions
-- Query is converted into a TF-IDF vector
-- FAISS performs similarity search on the vector index
-- Top-K most relevant records are retrieved from the dataset
-- Best matching response is selected
-- Confidence score is calculated from similarity distance
-- Response and confidence are displayed to the user
-- Conversation state is maintained for multi-turn interaction
-- Ending keywords gracefully terminate the conversation
+---
 
-## Advantages
+### 🔄 Application Workflow
 
-- High accuracy and consistency, as responses are based on stored data.
-- Explainable AI behavior through visible retrieved context and confidence scores.
-- No hallucinations, ensuring trustworthy responses.
-- Lightweight and fast, suitable for local systems and low-resource environments.
-- Easily extensible, simply by expanding or updating the dataset.
-- User-friendly interface, accessible to both technical and non-technical users.
-## Limitations
+1. User enters a query through the Streamlit chat interface.
+2. Input text is cleaned and normalized using regular expressions.
+3. Query is converted into a TF-IDF vector.
+4. FAISS performs similarity search on the vector index.
+5. Top-K most relevant records are retrieved from the dataset.
+6. Best matching response is selected.
+7. Confidence score is calculated from similarity distance.
+8. Response and confidence are displayed to the user.
+9. Conversation state is maintained for multi-turn interaction.
+10. Ending keywords gracefully terminate the conversation.
 
-- Limited to dataset knowledge, cannot answer unseen or out-of-scope queries.
-- TF-IDF lacks deep semantic understanding compared to transformer-based embeddings.
-- Manual dataset updates required for new domains or intents.
-- Not a generative model, so it cannot create novel or creative responses.
-## Real-Time Applications
+---
 
-- Customer Support Chatbots for FAQs, policies, and service queries.
-- Educational Assistants for syllabus-based or institutional question answering.
-- Enterprise Knowledge Systems for internal documentation retrieval.
-- E-commerce Help Bots for order tracking and customer assistance.
-- Domain-Specific Chatbots for healthcare, banking, or academic use cases.
-## Future Enhancements
+# 📊 Feature Comparison
 
-- Sentence-BERT or transformer embeddings for improved semantic matching.
-- Hybrid RAG architecture, combining retrieval with LLM-based generation.
-- Voice-enabled chatbot support for accessibility.
-- Multilingual dataset support for global usage.
-- Admin dashboard for dataset and intent management.
-- Advanced evaluation metrics such as MRR, Recall@K, and NDCG.
-## Conclusion
+| Feature | Generative Chatbot | RAG Chatbot |
+|:---|:---:|:---:|
+| Factual Accuracy | ❌ Prone to Hallucination | ✅ Dataset-Grounded |
+| Explainability | ❌ Black Box | ✅ Transparent |
+| Confidence Scoring | ❌ | ✅ |
+| Multi-Turn Support | ✅ | ✅ |
+| Hallucination Risk | High | ✅ Low/None |
+| Domain-Specific | ❌ | ✅ |
+| Lightweight | ❌ | ✅ |
+| Response Consistency | ❌ | ✅ |
 
-The Smart Chatbot with Conversational RAG showcases a practical and production-oriented approach to building explainable conversational AI systems. By combining TF-IDF, FAISS, and Streamlit, the project delivers fast, accurate, and transparent responses while avoiding the risks of hallucination. This system serves as a strong foundation for real-world chatbot deployments and demonstrates solid understanding of modern NLP retrieval techniques.
+---
 
-## OUTPUT:
+# ✨ Core Features
+
+## 🤖 Retrieval-Augmented Generation
+- Dataset-grounded responses
+- No hallucination
+- Factually accurate answers
+- Transparent retrieval process
+
+---
+
+## 📊 TF-IDF + FAISS Retrieval
+
+| Component | Function |
+|:---|:---|
+| TF-IDF Vectorizer | Converts text to numerical vectors |
+| FAISS Index | Enables fast similarity search |
+| Cosine Similarity | Measures query-document similarity |
+| Top-K Retrieval | Returns most relevant responses |
+
+---
+
+## 🎯 Confidence Score Calculation
+- Similarity distance measurement
+- Percentage-based confidence
+- Visual confidence indicator
+- Transparent scoring logic
+
+---
+
+## 💬 Multi-Turn Conversation
+- Session-based chat history
+- Context-aware responses
+- Persistent conversation state
+- Graceful conversation ending
+
+---
+
+## 🧠 Dataset-Grounded Responses
+- Curated dataset of Q&A pairs
+- Structured response retrieval
+- Domain-specific knowledge
+- Easy dataset expansion
+
+---
+
+## 📈 Confidence Visualization
+- Visual confidence bars
+- Color-coded indicators
+- Real-time confidence display
+- User-friendly interpretation
+
+---
+
+## 🎨 Interactive Interface
+- Streamlit-powered chat UI
+- Real-time message updates
+- Clean and professional design
+- User-friendly experience
+
+---
+
+# 🛠 Technology Stack
+
+| Layer | Technology |
+|:---|:---|
+| Programming Language | Python 3.11 |
+| User Interface | Streamlit |
+| Vectorization | Scikit-Learn (TF-IDF) |
+| Similarity Search | FAISS |
+| Data Processing | Pandas + NumPy |
+| Serialization | Pickle |
+| Text Preprocessing | Regular Expressions (re) |
+| Deployment | Streamlit Cloud / Local |
+| Version Control | Git & GitHub |
+
+---
+
+# 📂 Project Structure
+
+```text
+SMART-CHATBOT-WITH-RAG/
+│
+├── app.py                              # Main Streamlit Application
+├── build_vectorstore.py                # Vector Store Builder
+├── clean_dataset.py                    # Data Cleaning Script
+├── requirements.txt                    # Dependencies
+├── README.md                           # Documentation
+├── .gitignore                          # Git Ignore
+│
+├── data/
+│   ├── rag.csv                         # Raw Dataset
+│   └── rag_cleaned.csv                 # Cleaned Dataset
+│
+├── vectorstore/
+│   ├── tfidf_vectorizer.pkl            # TF-IDF Vectorizer
+│   └── tfidf.index                     # FAISS Index
+│
+├── notebooks/
+│   ├── clean_dataset-checkpoint.py
+│   ├── evaluate_rag.ipynb              # RAG Evaluation
+│   └── inspect.ipynb                   # Data Inspection
+│
+├── evaluate_rag.ipynb                  # Evaluation Notebook
+└── inspect.ipynb                       # Inspection Notebook
+```
+
+---
+
+# 📸 Application Preview
+
 <img width="840" height="733" alt="Image" src="https://github.com/user-attachments/assets/d3900a9a-13ed-46df-9164-0e51eb353860" />
+
 <img width="841" height="687" alt="Image" src="https://github.com/user-attachments/assets/22130c46-bc13-43db-908e-88911d06f4c3" />
+
 <img width="700" height="737" alt="Image" src="https://github.com/user-attachments/assets/3e8584cb-d604-4b98-9b6b-026d628cde54" />
+
+The screenshots above demonstrate the Smart Chatbot's complete workflow—from user query input and TF-IDF vectorization to FAISS similarity search, confidence scoring, and multi-turn conversation management.
+
+
+---
+
+# ⚙ Installation
+
+## Prerequisites
+
+- Python 3.11+
+- pip
+
+---
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Keya3639/SMART-CHATBOT-WITH-RAG.git
+
+cd SMART-CHATBOT-WITH-RAG
+```
+
+---
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Build Vector Store
+
+```bash
+python build_vectorstore.py
+```
+
+---
+
+### Run Application
+
+```bash
+streamlit run app.py
+```
+
+---
+
+### Alternative Execution
+
+```bash
+python app.py
+```
+
+---
+
+# 🚀 Demo Workflow
+
+| Step | Action |
+|:--:|:---|
+| 1 | Open Streamlit Chat Interface |
+| 2 | Type Your Query or Question |
+| 3 | System Preprocesses Query |
+| 4 | TF-IDF Vectorization |
+| 5 | FAISS Similarity Search |
+| 6 | Top-K Records Retrieved |
+| 7 | Best Response Selected |
+| 8 | Confidence Score Calculated |
+| 9 | Response Displayed with Confidence |
+| 10 | Continue Multi-Turn Conversation |
+
+---
+
+# 🌟 Why RAG Chatbot?
+
+Unlike purely generative models that can hallucinate, the **Smart Chatbot with RAG** grounds every response in a curated dataset, ensuring factual correctness, transparency, and reliability.
+
+This system helps:
+
+- 🤖 Build trustworthy conversational AI
+- 📊 Ensure factual accuracy
+- 🎯 Provide confidence scores
+- 💬 Support multi-turn conversations
+- 🔍 Enable explainable AI behavior
+- ⚡ Deliver fast, lightweight responses
+
+**RAG Chatbot doesn't generate answers—it retrieves the right ones.**
+
+---
+
+# 📈 Advantages
+
+- ✅ High accuracy and consistency
+- ✅ Explainable AI behavior
+- ✅ No hallucinations, ensuring trustworthy responses
+- ✅ Lightweight and fast
+- ✅ Easily extensible with dataset updates
+- ✅ User-friendly interface
+- ✅ Suitable for domain-specific applications
+
+---
+
+# ⚠️ Limitations
+
+- Limited to dataset knowledge
+- Cannot answer unseen or out-of-scope queries
+- TF-IDF lacks deep semantic understanding
+- Manual dataset updates required for new domains
+- Not a generative model for creative responses
+
+---
+
+# 🌟 Real-Time Applications
+
+- 💬 Customer Support Chatbots for FAQs and policies
+- 🎓 Educational Assistants for syllabus-based Q&A
+- 🏢 Enterprise Knowledge Systems for documentation
+- 🛍️ E-commerce Help Bots for order tracking
+- 🏥 Domain-Specific Chatbots for healthcare, banking
+
+---
+
+# 🔮 Future Enhancements
+
+| Phase | Features |
+|:---|:---|
+| Phase 1 | Sentence-BERT or transformer embeddings |
+| Phase 2 | Hybrid RAG with LLM generation |
+| Phase 3 | Voice-enabled chatbot support |
+| Phase 4 | Multilingual dataset support |
+| Phase 5 | Admin dashboard for dataset management |
+| Phase 6 | Advanced evaluation metrics (MRR, Recall@K) |
+
+---
+
+# 🛣 Roadmap
+
+- ✅ TF-IDF + FAISS Retrieval
+- ✅ Confidence Score Calculation
+- ✅ Multi-Turn Conversation
+- ✅ Streamlit Interface
+- ✅ Dataset-Grounded Responses
+- 🔄 Transformer Embeddings
+- 🔄 Hybrid RAG Architecture
+- 🔄 Voice Integration
+
+---
+
+# 🎯 Conclusion
+
+The **Smart Chatbot with Conversational RAG** showcases a practical and production-oriented approach to building explainable conversational AI systems. By combining TF-IDF, FAISS, and Streamlit, the project delivers fast, accurate, and transparent responses while avoiding the risks of hallucination.
+
+This system serves as a strong foundation for real-world chatbot deployments and demonstrates solid understanding of modern NLP retrieval techniques.
+
+---
+
+# 👩‍💻 Developer
+
+## Keya Das
+
+**MCA (Artificial Intelligence & Data Science)**
+
+🌐 **GitHub**
+
+https://github.com/Keya3639
+
+📧 **Email**
+
+keyakarunamoydas@gmail.com
+
+---
+
+# 🙏 Acknowledgements
+
+This project was developed using the following open-source technologies and frameworks:
+
+- 🧠 Scikit-Learn
+- 🔎 FAISS
+- 🎨 Streamlit
+- 🐍 Python
+- 🐼 Pandas
+- 📊 NumPy
+- 💾 Pickle
+- 🌍 Open Source Community
+
+---
+
+<div align="center">
+
+# 🤖 Smart Chatbot with RAG
+
+### Retrieve. Respond. Retain. Smarter Conversations. 🧠
+
+<br>
+
+**Built with ❤️ using**
+
+**Python • Streamlit • FAISS • Scikit-Learn • Pandas • NumPy • Pickle**
+
+<br>
+
+</div>
+
